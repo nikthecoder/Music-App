@@ -1,0 +1,23 @@
+﻿
+@model MusicApp.Models.Band
+
+<div asp-validation-summary="ModelOnly"></div>
+<table>
+    <tbody>
+        <tr>
+            <th><label asp-for="Name">@Html.DisplayNameFor(b => b.Name)</label></th>
+            <td><input asp-for="Name"></td>
+            <td><span asp-validation-for="Name"></span></td>
+        </tr>
+        <tr>
+            <th><label asp-for="Genre">@Html.DisplayNameFor(b => b.Genre)</label></th>
+            <td><input asp-for="Genre"></td>
+            <td><span asp-validation-for="Genre"></span></td>
+        </tr>
+        <tr>
+            <th><label asp-for="YearFormed">@Html.DisplayNameFor(b => b.YearFormed)</label></th>
+            <td><input asp-for="YearFormed"></td>
+            <td><span asp-validation-for="YearFormed"></span></td>
+        </tr>
+    </tbody>
+</table>

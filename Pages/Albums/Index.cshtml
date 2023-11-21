@@ -1,0 +1,61 @@
+﻿@page
+@model MusicApp.Pages.Albums.IndexModel
+@{
+    ViewData["Title"] = "Albums";
+}
+
+<a asp-page="./Create">Add an Album</a>
+
+<form method="get">
+    <table>
+        <tbody>
+            <tr>
+                <th><label for="SearchTerm">Search</label></th>
+                <td><input type="search" name="SearchTerm" id="SearchTerm" value="@Model.SearchTerm"></td>
+            </tr>
+            <tr>
+                <th><label for="SortColumn">Sort by</label></th>
+                <td>
+                    <select asp-for="SortColumn" asp-items="Model.SortColumnList">
+                        <option></option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(a => a.Albums[0].Name)</th>
+            <th>@Html.DisplayNameFor(a => a.Albums[0].ReleaseYear)</th>
+            <th>@Html.DisplayNameFor(a => a.Albums[0].AverageRating)</th>
+            <th>@Html.DisplayNameFor(a => a.Albums[0].Band.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var album in Model.Albums)
+        {
+        <tr>
+            <td><a asp-page="./Details" asp-route-id="@album.ID">@album.Name</a></td>
+            <td>@album.ReleaseYear</td>
+            @if (album.AverageRating == null || album.AverageRating == 0 || double.IsNaN((double)album.AverageRating))
+            {
+                <td>This album does not yet have a rating</td>
+            }
+            else
+            {
+                <td>@album.AverageRating</td>
+            }
+            <td>@album.Band.Name</td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@album.ID">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@album.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

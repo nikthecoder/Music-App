@@ -1,0 +1,16 @@
+﻿@page
+@model MusicApp.Pages.Bands.CreateModel
+@{
+    ViewData["Title"] = "Create Band";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <partial name="_EditForm" for="Band" />
+    <button type="submit">Create Band</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

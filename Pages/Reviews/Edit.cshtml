@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model MusicApp.Pages.Reviews.EditModel
+@{
+    ViewData["Title"] = "Edit review";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form method="post">
+
+    <table>
+        <tbody>
+            <tr>
+                <th><label asp-for="Review.Content">@Html.DisplayNameFor(m => m.Review.Content)</label></th>
+                <td><textarea placeholder=@Model.Review.Content asp-for="Review.Content"></textarea></td>
+                <td><span asp-validation-for="Review.Content"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Review.Rating">@Html.DisplayNameFor(m => m.Review.Rating)</label></th>
+                <td>
+                    <select name="RatingScore">
+                        Rating
+                        <option value="@Model.Review.Rating" selected disabled hidden>@Model.Review.Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+                <td><span asp-validation-for="Review.Rating"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit">Update Review</button>
+</form>

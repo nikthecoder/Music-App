@@ -1,0 +1,42 @@
+﻿@page "{id:int}"
+@model MusicApp.Pages.Musicians.EditModel
+@{
+    ViewData["Title"] = "Edit Musician";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <th><label asp-for="Musician.Name">@Html.DisplayNameFor(m => m.Musician.Name)</label></th>
+                <td><input asp-for="Musician.Name"></td>
+                <td><span asp-validation-for="Musician.Name"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Musician.BirthDay">@Html.DisplayNameFor(m => m.Musician.BirthDay)</label></th>
+                <td><input asp-for="Musician.BirthDay"></td>
+                <td><span asp-validation-for="Musician.BirthDay"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Musician.Band">@Html.DisplayNameFor(m => m.Musician.Band)</label></th>
+                <td>
+                    <select name="selectedBand">
+                        @foreach (var band in Model.BandNames)
+                        {
+                            <option value="@band">@band</option>
+                        }
+                    </select>
+                </td>
+                <td><span asp-validation-for="Musician"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit">Save Contact</button>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

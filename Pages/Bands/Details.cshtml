@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@model MusicApp.Pages.Bands.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>@Model.Band.Name</h2>
+
+<dl>
+    <dt>@Html.DisplayNameFor(m => m.Band.Genre)</dt>
+    <dd>@Model.Band.Genre</dd>
+    <dt>@Html.DisplayNameFor(m => m.Band.YearFormed)</dt>
+    <dd>@Model.Band.YearFormed</dd>
+    <dt>@Html.DisplayNameFor(m => m.Band.AverageRating)</dt>
+    <dd>@Model.Band.AverageRating</dd>
+
+</dl>
+
+<a asp-page="./Index">Back to List</a>

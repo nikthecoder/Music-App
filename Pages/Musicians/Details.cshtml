@@ -1,0 +1,23 @@
+﻿@page "{id:int}"
+@model MusicApp.Pages.Musicians.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>@Model.Musician.Name</h2>
+
+<dl>
+    <dt>@Html.DisplayNameFor(m => m.Musician.Name)</dt>
+    <dd>@Model.Musician.Name</dd>
+    <dt>@Html.DisplayNameFor(m => m.Musician.BirthDay)</dt>
+    <dd>@Model.Musician.BirthDay.ToShortDateString()</dd>
+    <dt>@Html.DisplayNameFor(m => m.Musician.Country)</dt>
+    <dd>@Model.Musician.Country</dd>
+    <dt>@Html.DisplayNameFor(m => m.Musician.Band)</dt>
+    <dd>@Model.Musician.Band.Name</dd>
+</dl>
+
+
+<a asp-page="./Index">Back to List</a>

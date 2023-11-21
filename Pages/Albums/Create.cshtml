@@ -1,0 +1,41 @@
+﻿@page
+@model MusicApp.Pages.Albums.CreateModel
+@{
+    ViewData["Title"] = "Create Album";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <th><label asp-for="Album.Name">@Html.DisplayNameFor(a => a.Album.Name)</label></th>
+                <td><input asp-for="Album.Name"></td>
+                <td><span asp-validation-for="Album.Name"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Album.ReleaseYear">@Html.DisplayNameFor(a => a.Album.ReleaseYear)</label></th>
+                <td><input asp-for="Album.ReleaseYear"></td>
+                <td><span asp-validation-for="Album.ReleaseYear"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Album.Band">@Html.DisplayNameFor(a => a.Album.Band)</label></th>
+                <td>
+                    <select name="selectedBand">
+                        @foreach (var band in Model.BandNames)
+                        {
+                            <option value="@band">@band</option>
+                        }
+                    </select>
+                </td>
+                <td><span asp-validation-for="Album.Band"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit">Create Album</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MusicApp</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+
+        <nav id="navbar" class="sticky">
+            <a asp-area="" asp-page="/Index">MusicApp</a>
+            <ul>
+                <li>
+                    <a asp-area="" asp-page="/Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Bands/index">Bands</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Albums/index">Albums</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Musicians/index">Musicians</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </li>
+            </ul>
+            <partial name="_LoginPartial" />
+        </nav>
+
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div>
+            &copy; 2022 - MusicApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
